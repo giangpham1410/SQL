@@ -1,7 +1,5 @@
--- coi lai logic cau 18
-
-select * from olympics_history;
-select * from olympics_history_noc_regions;
+SELECT * FROM olympics_history;
+SELECT * FROM olympics_history_noc_regions;
 
 -- 1. How many olympics games have been held?
 SELECT COUNT (DISTINCT games) AS total_olympic_games
