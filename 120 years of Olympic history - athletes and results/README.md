@@ -34,7 +34,7 @@ The file **noc_regions.csv** contains 230 rows and 3 columns. The columns are:
 
 ### 3. Language: PostgreSQL
 
-### 4. List of all these 20 queries mentioned below:
+### 4. List of 20 queries
 
 1. How many olympics games have been held?
 2. List down all Olympics games held so far.
