@@ -6,14 +6,14 @@ The dataset includes much information about students such as name, batch name, m
 
 ### II. Dataset:
 
-The dataset includes multiple tables.
+The dataset includes 8 tables.
 
-1. `users`: name(user name), active(boolean to check if user is active)
-2. `batches`: name(batch name), active(boolean to check if batch is active)
-3. `student_batch_maps`: this table is a mapping of the student and his batch. deactivated_at is the time when a student is made inactive in a batch.
-4. `instructor_batch_maps`: this table is a mapping of the instructor and the batch he has been assigned to take class/session.
+1. `users`: name (user name), active (boolean to check if user is active)
+2. `batches`: name (batch name), active (boolean to check if batch is active)
+3. `student_batch_maps`: This table is a mapping of the student and his batch. deactivated_at is the time when a student is made inactive in a batch.
+4. `instructor_batch_maps`: This table is a mapping of the instructor and the batch he has been assigned to take class/session.
 5. `sessions`: Every day session happens where the teacher takes a session or class of students.
-6. `attendances`: After session or class happens between teacher and student, attendance is given by student. students provide ratings to the teacher.
+6. `attendances`: After session or class happens between teacher and student, attendance is given by student. Students provide ratings to the teacher.
 7. `tests`: Test is created by instructor. total_mark is the maximum marks for the test.
 8. `test_scores`: Marks scored by students are added in the test_scores table.
 
@@ -21,7 +21,7 @@ The dataset includes multiple tables.
 
 ### IV. List of queries
 
-1. Calculate the average rating given by students to each teacher for each session created. Also, provide the batch name for which session was conducted.
+1. Calculate the average rating given by students to each teacher for each session created. <br>Also, provide the batch name for which session was conducted.
 2. Find the attendance percentage for each session for each batch. <br>
    Also mention the batch name and users name who has conduct that session.
 3. What is the average marks scored by each student in all the tests the student had appeared?
