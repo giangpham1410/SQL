@@ -19,7 +19,11 @@ The dataset includes 8 tables.
 
 ### III. Language: PostgresSQL
 
-### IV. List of queries
+### IV. Diagram
+
+![Student and their marks Diagram](diagram.png)
+
+### V. List of queries
 
 1. Calculate the average rating given by students to each teacher for each session created. <br>Also, provide the batch name for which session was conducted.
 2. Find the attendance percentage for each session for each batch. <br>
@@ -45,7 +49,3 @@ The dataset includes 8 tables.
    Also mention the batch name and users name of the students.
 10. A student is passed when he scores 40 percent of total marks in a test.<br>
     Find students who failed in a test. Also mention the batch name and user name for that test.
-
-### V. Diagram
-
-![Student and their marks Diagram](diagram.png)
