@@ -45,3 +45,7 @@ The dataset includes 8 tables.
    Also mention the batch name and users name of the students.
 10. A student is passed when he scores 40 percent of total marks in a test.<br>
     Find students who failed in a test. Also mention the batch name and user name for that test.
+
+### V. Diagram
+
+![Diagram](diagram.jpg "Diagram")
