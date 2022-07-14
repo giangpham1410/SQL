@@ -48,4 +48,4 @@ The dataset includes 8 tables.
 
 ### V. Diagram
 
-![Diagram](diagram.jpg "Diagram")
+![Student and their marks Diagram](diagram.png)
