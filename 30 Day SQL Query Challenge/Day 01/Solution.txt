@@ -1,0 +1,76 @@
+--- VIDEO_Q1 ---
+
+/* Problem Statement:
+- For pairs of brands in the same year (e.g. apple/samsung/2020 and samsung/apple/2020) 
+    - if custom1 = custom3 and custom2 = custom4 : then keep only one pair
+
+- For pairs of brands in the same year 
+    - if custom1 != custom3 OR custom2 != custom4 : then keep both pairs
+
+- For brands that do not have pairs in the same year : keep those rows as well
+*/
+
+
+/* SOLUTION
+- Platform: MySQL.
+- Functions: CTE, CONCAT_WS, LEAST, GREATEST, CASE WHEN, SUBSTRING_INDEX, UNION ALL.
+*/
+
+with
+	pair_brand_tbl as (
+		select
+			brand1
+            , brand2
+            , year
+			, concat_ws(
+				'/'
+				, least(brand1, brand2)
+				, greatest(brand1, brand2)
+                , year
+                ) AS pair_brand
+			, custom1 
+			, custom2
+			, custom3
+			, custom4
+            , CASE
+				WHEN custom1 = custom3 AND custom2 = custom4 THEN 'duplicate'
+				WHEN custom1 <> custom3 OR custom2 <> custom4 THEN 'no_duplicate'
+				ELSE 'check logic'
+				END AS logic
+		from brands
+        where brand1 IS NOT NULL AND brand2 IS NOT NULL
+        ORDER BY pair_brand)
+
+-- remove duplicate rows
+select
+	SUBSTRING_INDEX(dup.pair_brand, '/', 1) AS brand1
+	, SUBSTRING_INDEX( SUBSTRING_INDEX(dup.pair_brand, '/', -2), '/', 1) AS brand2
+    , year
+    , custom1
+    , custom2
+    , custom3
+    , custom4
+FROM (
+	select distinct pair_brand, year, custom1, custom2, custom3, custom4
+	from pair_brand_tbl
+	WHERE logic = 'duplicate') dup
+
+-- Get all rows with logic = no_duplicate
+UNION ALL
+select
+	brand1
+    , brand2
+    , year
+    , custom1
+    , custom2
+    , custom3
+    , custom4
+from pair_brand_tbl
+WHERE logic = 'no_duplicate'
+
+-- Get all rows which contains NULL data
+UNION ALL
+SELECT *
+FROM brands
+WHERE brand1 IS NULL OR brand2 IS NULL
+;
